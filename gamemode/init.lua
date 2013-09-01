@@ -610,16 +610,16 @@ end
 -- Minigame Inclusion.
 
 function IncludeMinigames()
-	local path = string.Replace(GM.Folder, "gamemodes/", "").."/gamemode/wareminigames/"
+	--local path = "./wareminigames/"
 	local names = {}
 	local authors = {}
 	local str = ""
 	
-	for _,file in pairs( file.Find("wareminigames/", "LUA")) do
+	for _, file in pairs( file.Find("gamemodes/garryware/gamemode/wareminigames/*.lua", "MOD")) do
 		WARE = {}
 		
-		AddCSLuaFile(path..file)
-		include(path..file)
+		AddCSLuaFile("wareminigames/"..file)
+		include("wareminigames/"..file)
 		
 		local gamename = string.Replace(file, ".lua", "")
 		ware_mod.Register(gamename, WARE)
