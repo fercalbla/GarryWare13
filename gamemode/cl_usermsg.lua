@@ -75,7 +75,7 @@ usermessage.Hook( "ServerJoinInfo", ServerJoinInfo )
 
 local function EnableMusicVolume( optiLoopToPlay )
 	if gws_AmbientMusicIsOn then
-		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.7 )
+		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.7, GAMEMODE:GetSpeedPercent() )
 	end
 end
 
@@ -89,8 +89,8 @@ local function EnableMusic( optiLoopToPlay )
 		
 		gws_AmbientMusic[optiLoopToPlay]:Play()
 		gws_AmbientMusic_dat[optiLoopToPlay]._IsPlaying = true
-		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.1 )
-		gws_AmbientMusic[optiLoopToPlay]:ChangePitch( GAMEMODE:GetSpeedPercent() )
+		gws_AmbientMusic[optiLoopToPlay]:ChangeVolume( 0.1, GAMEMODE:GetSpeedPercent() )
+		gws_AmbientMusic[optiLoopToPlay]:ChangePitch( GAMEMODE:GetSpeedPercent(), 1 )
 		timer.Simple( GAMEMODE.WADAT.StartFlourishLength * 0.7 , EnableMusicVolume, optiLoopToPlay )
 		
 	end
@@ -101,7 +101,7 @@ local function DisableMusic()
 	if not gws_AmbientMusicIsOn then
 		for k, music in pairs( gws_AmbientMusic ) do
 			if gws_AmbientMusic_dat[k]._IsPlaying then
-				music:ChangeVolume( 0.1 )
+				music:ChangeVolume( 0.1, GAMEMODE:GetSpeedPercent() )
 				
 			else
 				music:Stop()
