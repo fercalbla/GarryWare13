@@ -50,9 +50,9 @@ function GM:PrintStreaksticks( )
 			NewWorldPos.z = NewWorldPos.z + 96
 			
 			LightColor = render.GetLightColor( ply:GetPos() ) * 2
-			LightColor.x = mathx.Clamp( LightColor.x, 0, 1 )
-			LightColor.y = mathx.Clamp( LightColor.y, 0, 1 )
-			LightColor.z = mathx.Clamp( LightColor.z, 0, 1 )
+			LightColor.x = math.Clamp( LightColor.x, 0, 1 )
+			LightColor.y = math.Clamp( LightColor.y, 0, 1 )
+			LightColor.z = math.Clamp( LightColor.z, 0, 1 )
 			PosToScreen = NewWorldPos:ToScreen()
 			PosToScreen.x = math.floor( PosToScreen.x )
 			PosToScreen.y = math.floor( PosToScreen.y )
