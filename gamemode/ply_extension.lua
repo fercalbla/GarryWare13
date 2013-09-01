@@ -154,7 +154,7 @@ function meta:ApplyLock( dontSendStatusMessage )
 	
 	else
 		-- TOKEN_GWUPDATE_COMP
-		local anim = (math.random(0, 1) > 0) and ACT_ITEM_THROW or ACT_ITEM_DROP
+		local anim = (math.random(0, 1) > 0) and ACT_GMOD_GESTURE_ITEM_THROW or ACT_GMOD_GESTURE_ITEM_DROP
 		self:DoAnimationEvent( anim ) 
 		self:EmitSound(GAMEMODE.WASND.OtherLose, 100, GAMEMODE:GetSpeedPercent())
 		self:AddDeaths( 1 )
